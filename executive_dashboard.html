@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INGENIERÍA SOCIAL · Executive Dashboard &amp; Strategic Management | Wilmer Castellanos</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    body {
+      background-color: #f8fafc;
+      color: #0f172a;
+    }
+    .panel-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+    }
+    .panel-card-hover {
+      transition: all 0.2s ease;
+    }
+    .panel-card-hover:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+      transform: translateY(-1px);
+    }
+    .nav-btn.active {
+      background-color: #ffffff;
+      color: #047857;
+      border-color: #10b981;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      font-weight: 700;
+    }
+    .pitch-slide {
+      transition: all 0.3s ease-in-out;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen antialiased selection:bg-emerald-500 selection:text-white font-sans p-3 sm:p-6 lg:p-8">
+
+  <!-- Ambient background glow accents (subtle light) -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-emerald-100/60 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/3 -right-40 w-[30rem] h-[30rem] bg-blue-100/60 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-40 left-1/3 w-96 h-96 bg-teal-100/60 rounded-full blur-3xl"></div>
+  </div>
+
+  <!-- PITCH DECK MODAL / OVERLAY (LIGHT THEME) -->
+  <div id="pitchDeckOverlay" class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-md hidden flex flex-col justify-between p-4 sm:p-8 lg:p-12 overflow-y-auto">
+    <div class="bg-white rounded-3xl shadow-2xl border border-slate-200 max-w-6xl w-full mx-auto my-auto flex flex-col justify-between p-6 sm:p-10 min-h-[580px] relative">
+      
+      <!-- Pitch Deck Header -->
+      <div class="flex items-center justify-between border-b border-slate-100 pb-4 w-full">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center font-black text-white text-base shadow-md shadow-emerald-600/20">
+            IS
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] uppercase tracking-widest text-emerald-700 font-extrabold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Pitch Ejecutivo · Modo Presentación</span>
+              <span class="text-xs text-slate-400 font-medium">| Wilmer Castellanos</span>
+            </div>
+            <h2 class="text-base font-bold text-slate-900 mt-0.5">Ingeniería Social &amp; Strategic Management · Gobernación de Boyacá</h2>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <span id="pitchSlideCounter" class="text-xs font-mono font-semibold px-3 py-1 bg-slate-100 rounded-full text-slate-600 border border-slate-200">Slide 1 / 7</span>
+          <button onclick="togglePitchDeck(false)" class="p-2 text-slate-400 hover:text-slate-800 hover:bg-slate-100 rounded-xl transition" title="Cerrar presentación">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Pitch Slides Container -->
+      <div class="w-full my-auto py-6">
+        
+        <!-- Slide 1 -->
+        <div id="slide-1" class="pitch-slide space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold">
+            <span class="w-2 h-2 rounded-full bg-emerald-600 animate-ping"></span>
+            Propuesta de Consultoría Estratégica &amp; Inteligencia de Datos
+          </div>
+          <h1 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+            INGENIERÍA SOCIAL &amp; <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-600">
+              GESTIÓN REPUTACIONAL ESTRATÉGICA
+            </span>
+          </h1>
+          <p class="text-base sm:text-lg text-slate-600 max-w-3xl leading-relaxed">
+            Plataforma centralizada de inteligencia territorial, producción audiovisual cinematográfica, blindaje jurídico-crisis y posicionamiento digital orgánico para la candidatura de <strong>Wilmer Castellanos a la Gobernación de Boyacá</strong>.
+          </p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+              <div class="text-xs text-slate-500 uppercase font-semibold">Inversión Mensual</div>
+              <div class="text-2xl font-black text-emerald-700 mt-1">USD $25K</div>
+              <div class="text-[11px] text-slate-500 mt-0.5">Retainer recurrente integral</div>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+              <div class="text-xs text-slate-500 uppercase font-semibold">Modalidad de Servicio</div>
+              <div class="text-2xl font-black text-blue-700 mt-1">Retainer</div>
+              <div class="text-[11px] text-slate-500 mt-0.5">Auditable mes a mes</div>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+              <div class="text-xs text-slate-500 uppercase font-semibold">Unidades Operativas</div>
+              <div class="text-2xl font-black text-purple-700 mt-1">7 Módulos</div>
+              <div class="text-[11px] text-slate-500 mt-0.5">Operación simultánea</div>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+              <div class="text-xs text-slate-500 uppercase font-semibold">Monitoreo y Alerta</div>
+              <div class="text-2xl font-black text-amber-600 mt-1">24/7</div>
+              <div class="text-[11px] text-slate-500 mt-0.5">SOP Reacción &lt; 90 min</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div id="slide-2" class="pitch-slide hidden space-y-5">
+          <div>
+            <span class="text-xs uppercase tracking-widest text-teal-700 font-extrabold bg-teal-50 px-2 py-0.5 rounded border border-teal-200">Arquitectura de Servicio</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">7 Unidades Operativas Especializadas</h2>
+            <p class="text-slate-500 text-xs sm:text-sm mt-0.5">Operación modular centralizada que elimina la intermediación y garantiza unidad de mensaje.</p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <div class="text-emerald-700 font-bold flex items-center gap-1.5"><span class="w-5 h-5 rounded-md bg-emerald-100 flex items-center justify-center text-[11px]">01</span> Social Intelligence</div>
+              <p class="text-slate-600 text-[11px]">Análisis documental, mapas de actores institucionales y seguimiento de coyunturas en 123 municipios.</p>
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <div class="text-blue-700 font-bold flex items-center gap-1.5"><span class="w-5 h-5 rounded-md bg-blue-100 flex items-center justify-center text-[11px]">02</span> Reputation Intelligence</div>
+              <p class="text-slate-600 text-[11px]">Observatorio digital 24/7, monitoreo de medios, detección de controversias y matriz de riesgos.</p>
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <div class="text-purple-700 font-bold flex items-center gap-1.5"><span class="w-5 h-5 rounded-md bg-purple-100 flex items-center justify-center text-[11px]">03</span> Strategic Communications</div>
+              <p class="text-slate-600 text-[11px]">Arquitectura editorial, gestión de prensa y posicionamiento de "El Ingeniero de Soluciones Reales".</p>
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <div class="text-amber-700 font-bold flex items-center gap-1.5"><span class="w-5 h-5 rounded-md bg-amber-100 flex items-center justify-center text-[11px]">04</span> Digital Media Production</div>
+              <p class="text-slate-600 text-[11px]">Fábrica de contenidos con cámaras 4K y drones en vías campesinas: 12 videos, 12 gráficas y 2 minidocumentales/mes.</p>
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <div class="text-rose-700 font-bold flex items-center gap-1.5"><span class="w-5 h-5 rounded-md bg-rose-100 flex items-center justify-center text-[11px]">05</span> SEO &amp; Digital Reputation</div>
+              <p class="text-slate-600 text-[11px]">Auditoría SEO, dominancia de resultados #1 a #10 en Google y Google Knowledge Panel verificado.</p>
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <div class="text-red-700 font-bold flex items-center gap-1.5"><span class="w-5 h-5 rounded-md bg-red-100 flex items-center justify-center text-[11px]">06</span> Crisis Management &amp; Legal</div>
+              <p class="text-slate-600 text-[11px]">Respuesta inmediata &lt;90m, archivo probatorio SECOP/Sutamarchán/Invías y soporte jurídico.</p>
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 space-y-1 col-span-1 sm:col-span-2 lg:col-span-3">
+              <div class="text-teal-700 font-bold flex items-center gap-1.5"><span class="w-5 h-5 rounded-md bg-teal-100 flex items-center justify-center text-[11px]">07</span> Data &amp; Communications Management</div>
+              <p class="text-slate-600 text-[11px]">Micro-segmentación en 13 provincias boyacenses, mensajería directa SMS y Red de WhatsApp Veredal bajo Ley 1581 (Habeas Data).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div id="slide-3" class="pitch-slide hidden space-y-5">
+          <div>
+            <span class="text-xs uppercase tracking-widest text-purple-700 font-extrabold bg-purple-50 px-2 py-0.5 rounded border border-purple-200">Ciclo Estratégico</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Roadmap de Madurez Operativa en 6 Fases</h2>
+            <p class="text-slate-500 text-xs sm:text-sm mt-0.5">Progresión metódica desde el diagnóstico inicial hasta la consolidación territorial.</p>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-6 gap-3">
+            <div class="p-3.5 bg-slate-50 rounded-xl border-t-4 border-emerald-600 space-y-1.5">
+              <div class="text-xl font-black text-emerald-700">01</div>
+              <div class="text-xs font-bold text-slate-900">Diagnóstico</div>
+              <div class="text-[10px] text-slate-500 leading-tight">Auditoría, investigación documental y mapa inicial de riesgos.</div>
+              <div class="text-[10px] font-mono text-emerald-700 font-bold">Fase 1 · 17%</div>
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border-t-4 border-cyan-600 space-y-1.5">
+              <div class="text-xl font-black text-cyan-700">02</div>
+              <div class="text-xs font-bold text-slate-900">Infraestructura</div>
+              <div class="text-[10px] text-slate-500 leading-tight">Observatorio digital 24/7 y canales oficiales blindados.</div>
+              <div class="text-[10px] font-mono text-cyan-700 font-bold">Fase 2 · 33%</div>
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border-t-4 border-blue-600 space-y-1.5">
+              <div class="text-xl font-black text-blue-700">03</div>
+              <div class="text-xs font-bold text-slate-900">Producción</div>
+              <div class="text-[10px] text-slate-500 leading-tight">Biblioteca audiovisual, microdocumentales y banco gráfico.</div>
+              <div class="text-[10px] font-mono text-blue-700 font-bold">Fase 3 · 50%</div>
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border-t-4 border-amber-600 space-y-1.5">
+              <div class="text-xl font-black text-amber-700">04</div>
+              <div class="text-xs font-bold text-slate-900">Gestión SEO</div>
+              <div class="text-[10px] text-slate-500 leading-tight">Posicionamiento en Google y contención activa de controversias.</div>
+              <div class="text-[10px] font-mono text-amber-700 font-bold">Fase 4 · 67%</div>
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border-t-4 border-orange-600 space-y-1.5">
+              <div class="text-xl font-black text-orange-700">05</div>
+              <div class="text-xs font-bold text-slate-900">Territorio</div>
+              <div class="text-[10px] text-slate-500 leading-tight">Articulación provincial y red de difusión directa veredal.</div>
+              <div class="text-[10px] font-mono text-orange-700 font-bold">Fase 5 · 83%</div>
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border-t-4 border-emerald-600 space-y-1.5">
+              <div class="text-xl font-black text-emerald-700">06</div>
+              <div class="text-xs font-bold text-slate-900">Consolidación</div>
+              <div class="text-[10px] text-slate-500 leading-tight">Auditoría de impacto, optimización continua y escalamiento.</div>
+              <div class="text-[10px] font-mono text-emerald-700 font-bold">Fase 6 · 100%</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div id="slide-4" class="pitch-slide hidden space-y-5">
+          <div>
+            <span class="text-xs uppercase tracking-widest text-emerald-700 font-extrabold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Métricas &amp; Compromisos</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Dashboard de Indicadores (KPIs Mensuales)</h2>
+            <p class="text-slate-500 text-xs sm:text-sm mt-0.5">Entregables tangibles aprobados mensualmente por el comité de campaña.</p>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+            <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-200">
+              <div class="text-2xl font-black text-emerald-700">4 / mes</div>
+              <div class="text-xs font-bold text-slate-900 mt-0.5">Informes de Inteligencia</div>
+              <div class="text-[10px] text-slate-500">Semanal fijo cada lunes</div>
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-200">
+              <div class="text-2xl font-black text-cyan-700">12 / mes</div>
+              <div class="text-xs font-bold text-slate-900 mt-0.5">Videos Cortos</div>
+              <div class="text-[10px] text-slate-500">Reels / TikTok / Shorts</div>
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-200">
+              <div class="text-2xl font-black text-blue-700">12 / mes</div>
+              <div class="text-xs font-bold text-slate-900 mt-0.5">Piezas Gráficas</div>
+              <div class="text-[10px] text-slate-500">Infografías de gestión</div>
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-200">
+              <div class="text-2xl font-black text-purple-700">4 / mes</div>
+              <div class="text-xs font-bold text-slate-900 mt-0.5">Entrevistas &amp; Vocerías</div>
+              <div class="text-[10px] text-slate-500">Radio regional y podcasts</div>
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-200">
+              <div class="text-2xl font-black text-amber-700">2 / mes</div>
+              <div class="text-xs font-bold text-slate-900 mt-0.5">Minidocumentales</div>
+              <div class="text-[10px] text-slate-500">Historias en territorio</div>
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-200">
+              <div class="text-2xl font-black text-rose-700">1 / mes</div>
+              <div class="text-xs font-bold text-slate-900 mt-0.5">Informe Ejecutivo</div>
+              <div class="text-[10px] text-slate-500">Balance gerencial directo</div>
+            </div>
+            <div class="p-3.5 bg-emerald-50 rounded-2xl border border-emerald-300 col-span-2 flex flex-col justify-center">
+              <div class="text-xl font-black text-emerald-800 flex items-center justify-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-600 animate-ping"></span>
+                24/7 Permanente
+              </div>
+              <div class="text-xs font-bold text-slate-900 mt-0.5">Monitoreo de Incidentes &amp; Crisis</div>
+              <div class="text-[10px] text-slate-600">Reacción probatoria en menos de 90 minutos</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div id="slide-5" class="pitch-slide hidden space-y-5">
+          <div>
+            <span class="text-xs uppercase tracking-widest text-amber-700 font-extrabold bg-amber-50 px-2 py-0.5 rounded border border-amber-200">Eficiencia Financiera</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Inversión Mensual: USD $25.000</h2>
+            <p class="text-slate-500 text-xs sm:text-sm mt-0.5">Distribución técnica por unidad con desembolso contra acta de entrega.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div class="md:col-span-2 space-y-1.5 text-xs">
+              <div class="grid grid-cols-3 font-semibold text-slate-500 border-b border-slate-200 pb-1.5">
+                <div>Unidad Operativa</div>
+                <div class="text-center">Mensual (USD)</div>
+                <div class="text-right">Porcentaje</div>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-slate-100">
+                <span class="text-slate-800 font-medium">Producción Audiovisual y Gráfica</span>
+                <span class="font-mono text-emerald-700 font-bold">$4.500</span>
+                <span class="text-slate-500">18.0%</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-slate-100">
+                <span class="text-slate-800 font-medium">Dirección Estratégica General</span>
+                <span class="font-mono text-emerald-700 font-bold">$3.500</span>
+                <span class="text-slate-500">14.0%</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-slate-100">
+                <span class="text-slate-800 font-medium">Social &amp; Reputation Intelligence</span>
+                <span class="font-mono text-emerald-700 font-bold">$3.500</span>
+                <span class="text-slate-500">14.0%</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-slate-100">
+                <span class="text-slate-800 font-medium">Comunicación Estratégica &amp; Relato</span>
+                <span class="font-mono text-emerald-700 font-bold">$3.500</span>
+                <span class="text-slate-500">14.0%</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-slate-100">
+                <span class="text-slate-800 font-medium">SEO &amp; Posicionamiento Digital</span>
+                <span class="font-mono text-emerald-700 font-bold">$3.000</span>
+                <span class="text-slate-500">12.0%</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-slate-100">
+                <span class="text-slate-800 font-medium">Crisis Management &amp; Legal</span>
+                <span class="font-mono text-emerald-700 font-bold">$2.000</span>
+                <span class="text-slate-500">8.0%</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-slate-100">
+                <span class="text-slate-800 font-medium">Tecnología, Datos y Mensajería</span>
+                <span class="font-mono text-emerald-700 font-bold">$2.000</span>
+                <span class="text-slate-500">8.0%</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-slate-100">
+                <span class="text-slate-800 font-medium">Observación Territorial</span>
+                <span class="font-mono text-emerald-700 font-bold">$1.500</span>
+                <span class="text-slate-500">6.0%</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-slate-100">
+                <span class="text-slate-800 font-medium">Administración y Operaciones</span>
+                <span class="font-mono text-emerald-700 font-bold">$1.500</span>
+                <span class="text-slate-500">6.0%</span>
+              </div>
+            </div>
+            <div class="p-5 bg-emerald-50 rounded-2xl border border-emerald-200 flex flex-col justify-between text-center">
+              <div>
+                <div class="text-xs text-emerald-800 uppercase font-semibold">Inversión Mensual Plana</div>
+                <div class="text-3xl font-black text-emerald-900 mt-2">USD $25.000</div>
+                <div class="text-xs font-mono text-emerald-700 mt-1">≈ $100.000.000 COP / mes</div>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-emerald-200 text-[11px] text-slate-600 text-left">
+                <strong>Retorno de Inversión:</strong> Ahorro estimado del 42% frente a la contratación dispersa de productoras, agencias de medios, abogados y software por separado.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 6 -->
+        <div id="slide-6" class="pitch-slide hidden space-y-5">
+          <div>
+            <span class="text-xs uppercase tracking-widest text-blue-700 font-extrabold bg-blue-50 px-2 py-0.5 rounded border border-blue-200">Gobernanza Directiva</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Estructura del Equipo de Alta Dirección</h2>
+            <p class="text-slate-500 text-xs sm:text-sm mt-0.5">7 Líderes con reporte directo al candidato y su comité político.</p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <span class="text-emerald-700 font-bold">01. Executive Director</span>
+              <p class="text-slate-900 font-semibold">Dirección General &amp; War Room</p>
+              <p class="text-slate-500 text-[11px]">Interlocución directa con Wilmer Castellanos y supervisión de SLAs.</p>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <span class="text-cyan-700 font-bold">02. Social Intelligence Dir.</span>
+              <p class="text-slate-900 font-semibold">Investigación &amp; Asuntos Públicos</p>
+              <p class="text-slate-500 text-[11px]">Mapas de poder en Boyacá y dinámica comunal en 123 municipios.</p>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <span class="text-blue-700 font-bold">03. Reputation Analyst</span>
+              <p class="text-slate-900 font-semibold">Monitoreo Digital &amp; Medios</p>
+              <p class="text-slate-500 text-[11px]">Operación del observatorio 24/7 y detección de alertas tempranas.</p>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <span class="text-purple-700 font-bold">04. Strategic Comm. Dir.</span>
+              <p class="text-slate-900 font-semibold">Narrativa &amp; Prensa Regional</p>
+              <p class="text-slate-500 text-[11px]">Relato de gestión técnica y coordinación de vocerías en radio.</p>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <span class="text-amber-700 font-bold">05. Creative &amp; Media Dir.</span>
+              <p class="text-slate-900 font-semibold">Producción &amp; Dirección de Arte</p>
+              <p class="text-slate-500 text-[11px]">Cámaras 4K, drones en corredores viales y piezas gráficas.</p>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <span class="text-rose-700 font-bold">06. Digital Operations Mgr.</span>
+              <p class="text-slate-900 font-semibold">SEO, Tecnología &amp; Tráfico</p>
+              <p class="text-slate-500 text-[11px]">Dominancia en Google SERP y envíos directos SMS/WhatsApp.</p>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1 col-span-1 sm:col-span-2">
+              <span class="text-red-700 font-bold">07. Legal &amp; Compliance Advisor</span>
+              <p class="text-slate-900 font-semibold">Blindaje Jurídico &amp; Reputacional</p>
+              <p class="text-slate-500 text-[11px]">Certificados SECOP, paz y salvos Sutamarchán/Invías y solicitudes de rectificación.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 7 -->
+        <div id="slide-7" class="pitch-slide hidden space-y-5">
+          <div>
+            <span class="text-xs uppercase tracking-widest text-emerald-700 font-extrabold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Gobernanza &amp; Principios</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Supervisión Institucional y Manifiesto Ético</h2>
+            <p class="text-slate-500 text-xs sm:text-sm mt-0.5">Consultoría limpia, auditable y basada 100% en hechos verificables.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs">
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+              <h3 class="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                <span class="text-emerald-700">🛡️</span> Dinámica de Supervisión
+              </h3>
+              <ul class="space-y-1.5 text-slate-600">
+                <li class="flex items-start gap-1.5"><strong class="text-emerald-700">✓</strong> Tablero de control SaaS en tiempo real.</li>
+                <li class="flex items-start gap-1.5"><strong class="text-emerald-700">✓</strong> Comités semanales de sincronización (60 min).</li>
+                <li class="flex items-start gap-1.5"><strong class="text-emerald-700">✓</strong> Aprobación previa obligatoria de toda pieza.</li>
+                <li class="flex items-start gap-1.5"><strong class="text-emerald-700">✓</strong> Desembolso mensual condicionado a entregables.</li>
+              </ul>
+            </div>
+            <div class="p-4 bg-emerald-50/70 rounded-2xl border border-emerald-200 space-y-2">
+              <h3 class="font-bold text-emerald-900 text-sm flex items-center gap-1.5">
+                <span>⚖️</span> Manifiesto Ético (White-Hat)
+              </h3>
+              <ul class="space-y-1.5 text-slate-700">
+                <li class="flex items-center gap-1.5 text-red-600"><strong class="font-bold">✕</strong> Cero uso de bots, trolls o cuentas ficticias.</li>
+                <li class="flex items-center gap-1.5 text-red-600"><strong class="font-bold">✕</strong> Cero manipulación o guerra sucia mediática.</li>
+                <li class="flex items-center gap-1.5 text-emerald-800"><strong class="font-bold">✓</strong> Apego irrestricto a la Ley 1581 (Habeas Data).</li>
+                <li class="flex items-center gap-1.5 text-emerald-800"><strong class="font-bold">✓</strong> Sustento probatorio oficial en contratos de SECOP.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Pitch Deck Navigation Controls -->
+      <div class="flex items-center justify-between border-t border-slate-100 pt-4 w-full">
+        <button id="prevSlideBtn" onclick="changeSlide(-1)" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+          Anterior
+        </button>
+        <div class="flex items-center gap-1.5" id="slideDots"></div>
+        <button id="nextSlideBtn" onclick="changeSlide(1)" class="px-5 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-md shadow-emerald-700/20">
+          Siguiente
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MAIN DASHBOARD CONTENT -->
+  <div class="max-w-7xl mx-auto space-y-6 relative z-10">
+
+    <!-- Top Command Bar / Breadcrumb & Actions -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-200 pb-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center font-black text-white text-base shadow-sm">
+          IS
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Plataforma SaaS de Inteligencia &amp; Consultoría</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.2 rounded font-mono font-semibold">STATUS: ACTIVO</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+            INGENIERÍA SOCIAL <span class="text-slate-400 font-normal">| Social Intelligence &amp; Strategic Management</span>
+          </h1>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
+        <a href="index.html" class="px-3.5 py-2 rounded-xl bg-white hover:bg-slate-100 text-slate-700 text-xs font-semibold border border-slate-200 transition flex items-center gap-1.5 shadow-sm">
+          <span>🏛️</span>
+          <span>War Room Político</span>
+        </a>
+        <button onclick="togglePitchDeck(true)" class="px-4 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-md shadow-emerald-700/20">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <span>Modo Pitch Ejecutivo</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Client Header Hero Card (Light Theme) -->
+    <header class="panel-card rounded-2xl p-6 sm:p-7 shadow-sm">
+      <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+        
+        <!-- Left: Candidate Profile Snippet -->
+        <div class="flex items-center gap-5">
+          <div class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-emerald-600 shadow-md flex-shrink-0 bg-slate-100">
+            <img src="images/media_1791917992770.png" alt="Wilmer Castellanos" class="w-full h-full object-cover">
+            <span class="absolute bottom-1 right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-white rounded-full" title="Monitoreo activo"></span>
+          </div>
+          <div class="space-y-1.5">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">Cliente Estratégico</span>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-800 border border-blue-200">Gobernación de Boyacá</span>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-50 text-amber-800 border border-amber-200">Campaña 2027</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+              Wilmer Yair Castellanos Hernández
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-500 font-medium max-w-xl">
+              Plataforma de inteligencia de datos, gestión reputacional, fábrica de contenidos audiovisuales y arquitectura editorial.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: Contract Key Metrics Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full lg:w-auto text-left border-t lg:border-t-0 lg:border-l border-slate-200 pt-4 lg:pt-0 lg:pl-6">
+          
+          <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200">
+            <div class="text-[11px] text-slate-500 font-medium">Inversión Mensual</div>
+            <div class="text-xl sm:text-2xl font-black text-emerald-700 font-mono" id="monthlyFeeDisplay">USD $25K</div>
+            <div class="text-[10px] text-slate-500 mt-0.5" id="monthlyFeeCop">≈ $100M COP/mes</div>
+          </div>
+
+          <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200">
+            <div class="text-[11px] text-slate-500 font-medium">Modalidad</div>
+            <div class="text-xl sm:text-2xl font-black text-blue-700">Retainer</div>
+            <div class="text-[10px] text-slate-500 mt-0.5">Mensual recurrente</div>
+          </div>
+
+          <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200">
+            <div class="text-[11px] text-slate-500 font-medium">Unidades Activas</div>
+            <div class="text-xl sm:text-2xl font-black text-purple-700">7 Módulos</div>
+            <div class="text-[10px] text-slate-500 mt-0.5">100% coordinados</div>
+          </div>
+
+          <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 flex flex-col justify-between">
+            <div class="text-[11px] text-slate-500 font-medium">Conversor Moneda</div>
+            <button onclick="toggleCurrency()" id="currencyToggleBtn" class="text-xs font-bold text-slate-700 hover:text-slate-900 bg-white hover:bg-slate-100 py-1 px-2 rounded-lg border border-slate-200 transition flex items-center justify-between shadow-2xs">
+              <span>USD ⇄ COP</span>
+              <span class="text-[10px] text-emerald-700 font-mono font-bold">$4.000</span>
+            </button>
+            <div class="text-[9px] text-slate-400">TRM referencial</div>
+          </div>
+
+        </div>
+
+      </div>
+    </header>
+
+    <!-- Navigation Tabs for the Dashboard Modules -->
+    <nav class="flex border-b border-slate-200 space-x-2 overflow-x-auto pb-1 text-xs sm:text-sm">
+      <button onclick="switchView('modulos')" id="view-modulos" class="nav-btn active px-4 py-2.5 rounded-xl border border-transparent font-medium transition flex items-center gap-2 whitespace-nowrap text-slate-600 hover:text-slate-900">
+        <span>🧩</span> 1. Panel de Módulos (7)
+      </button>
+      <button onclick="switchView('roadmap')" id="view-roadmap" class="nav-btn px-4 py-2.5 rounded-xl border border-transparent font-medium transition flex items-center gap-2 whitespace-nowrap text-slate-600 hover:text-slate-900">
+        <span>🗺️</span> 2. Roadmap Estratégico
+      </button>
+      <button onclick="switchView('kpis')" id="view-kpis" class="nav-btn px-4 py-2.5 rounded-xl border border-transparent font-medium transition flex items-center gap-2 whitespace-nowrap text-slate-600 hover:text-slate-900">
+        <span>📊</span> 3. Dashboard de KPIs
+      </button>
+      <button onclick="switchView('finanzas')" id="view-finanzas" class="nav-btn px-4 py-2.5 rounded-xl border border-transparent font-medium transition flex items-center gap-2 whitespace-nowrap text-slate-600 hover:text-slate-900">
+        <span>💰</span> 4. Inversión &amp; Finanzas ($25K/mes)
+      </button>
+      <button onclick="switchView('equipo')" id="view-equipo" class="nav-btn px-4 py-2.5 rounded-xl border border-transparent font-medium transition flex items-center gap-2 whitespace-nowrap text-slate-600 hover:text-slate-900">
+        <span>👥</span> 5. Equipo Directivo
+      </button>
+      <button onclick="switchView('gobierno')" id="view-gobierno" class="nav-btn px-4 py-2.5 rounded-xl border border-transparent font-medium transition flex items-center gap-2 whitespace-nowrap text-slate-600 hover:text-slate-900">
+        <span>⚖️</span> 6. Gobierno &amp; Ética
+      </button>
+    </nav>
+
+    <!-- SECTION 1: PANEL DE MÓDULOS DE SERVICIO (7 MÓDULOS) -->
+    <section id="content-modulos" class="space-y-5">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div>
+          <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-emerald-700">🧩</span> Panel de Módulos Operativos de Servicio
+          </h2>
+          <p class="text-xs text-slate-500 mt-0.5">
+            Arquitectura de 7 unidades operativas especializadas que actúan de manera sinérgica y sin fricciones.
+          </p>
+        </div>
+        <div class="text-xs text-slate-500 bg-white px-3 py-1.5 rounded-xl border border-slate-200">
+          Haz clic en cualquier tarjeta para ver su ficha técnica:
+        </div>
+      </div>
+
+      <!-- 7 Modules Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        
+        <!-- Module 01 -->
+        <div onclick="openModuleModal(1)" class="panel-card panel-card-hover rounded-2xl p-5 space-y-3 cursor-pointer group">
+          <div class="flex items-start justify-between">
+            <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center justify-center font-bold text-xs">
+              01
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
+              Investigación
+            </span>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-slate-900 group-hover:text-emerald-700 transition">Social Intelligence</h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2 leading-relaxed">
+              Análisis documental, observación social, mapeo de actores institucionales y seguimiento de asuntos públicos.
+            </p>
+          </div>
+          <div class="space-y-1.5 pt-2 border-t border-slate-100 text-[11px]">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Alcance:</span>
+              <span class="font-semibold text-slate-700">123 Municipios / 13 Provincias</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Entregable:</span>
+              <span class="text-emerald-700 font-bold">4 Informes / mes</span>
+            </div>
+          </div>
+          <div class="pt-1 flex items-center text-xs text-emerald-700 font-bold gap-1 group-hover:translate-x-1 transition">
+            <span>Ver ficha técnica</span>
+            <span>→</span>
+          </div>
+        </div>
+
+        <!-- Module 02 -->
+        <div onclick="openModuleModal(2)" class="panel-card panel-card-hover rounded-2xl p-5 space-y-3 cursor-pointer group">
+          <div class="flex items-start justify-between">
+            <div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-700 border border-blue-200 flex items-center justify-center font-bold text-xs">
+              02
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-50 text-blue-800 border border-blue-200">
+              Monitoreo
+            </span>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-slate-900 group-hover:text-blue-700 transition">Reputation Intelligence</h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2 leading-relaxed">
+              Observatorio digital, seguimiento de medios, identificación de controversias y documentación de riesgos.
+            </p>
+          </div>
+          <div class="space-y-1.5 pt-2 border-t border-slate-100 text-[11px]">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Régimen:</span>
+              <span class="font-semibold text-slate-700">Monitoreo 24/7 permanente</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Cobertura:</span>
+              <span class="text-blue-700 font-bold">Radio, Portales, X, TikTok</span>
+            </div>
+          </div>
+          <div class="pt-1 flex items-center text-xs text-blue-700 font-bold gap-1 group-hover:translate-x-1 transition">
+            <span>Ver ficha técnica</span>
+            <span>→</span>
+          </div>
+        </div>
+
+        <!-- Module 03 -->
+        <div onclick="openModuleModal(3)" class="panel-card panel-card-hover rounded-2xl p-5 space-y-3 cursor-pointer group">
+          <div class="flex items-start justify-between">
+            <div class="w-9 h-9 rounded-xl bg-purple-50 text-purple-700 border border-purple-200 flex items-center justify-center font-bold text-xs">
+              03
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-purple-50 text-purple-800 border border-purple-200">
+              Comunicación
+            </span>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-slate-900 group-hover:text-purple-700 transition">Strategic Communications</h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2 leading-relaxed">
+              Arquitectura editorial, gestión de canales oficiales y comunicación pública verificable.
+            </p>
+          </div>
+          <div class="space-y-1.5 pt-2 border-t border-slate-100 text-[11px]">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Relato:</span>
+              <span class="font-semibold text-slate-700">El Ingeniero de Soluciones</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Entrevistas:</span>
+              <span class="text-purple-700 font-bold">4 Entrevistas / mes</span>
+            </div>
+          </div>
+          <div class="pt-1 flex items-center text-xs text-purple-700 font-bold gap-1 group-hover:translate-x-1 transition">
+            <span>Ver ficha técnica</span>
+            <span>→</span>
+          </div>
+        </div>
+
+        <!-- Module 04 -->
+        <div onclick="openModuleModal(4)" class="panel-card panel-card-hover rounded-2xl p-5 space-y-3 cursor-pointer group">
+          <div class="flex items-start justify-between">
+            <div class="w-9 h-9 rounded-xl bg-amber-50 text-amber-700 border border-amber-200 flex items-center justify-center font-bold text-xs">
+              04
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-200">
+              Producción
+            </span>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-slate-900 group-hover:text-amber-700 transition">Digital Media Production</h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2 leading-relaxed">
+              Producción audiovisual, fotografía en territorio, minidocumentales y piezas gráficas de alto impacto.
+            </p>
+          </div>
+          <div class="space-y-1.5 pt-2 border-t border-slate-100 text-[11px]">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Piezas:</span>
+              <span class="font-semibold text-slate-700">12 Videos + 12 Gráficas / mes</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Cine / Docs:</span>
+              <span class="text-amber-700 font-bold">2 Minidocumentales / mes</span>
+            </div>
+          </div>
+          <div class="pt-1 flex items-center text-xs text-amber-700 font-bold gap-1 group-hover:translate-x-1 transition">
+            <span>Ver ficha técnica</span>
+            <span>→</span>
+          </div>
+        </div>
+
+        <!-- Module 05 -->
+        <div onclick="openModuleModal(5)" class="panel-card panel-card-hover rounded-2xl p-5 space-y-3 cursor-pointer group">
+          <div class="flex items-start justify-between">
+            <div class="w-9 h-9 rounded-xl bg-cyan-50 text-cyan-700 border border-cyan-200 flex items-center justify-center font-bold text-xs">
+              05
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-cyan-50 text-cyan-800 border border-cyan-200">
+              Posicionamiento
+            </span>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-slate-900 group-hover:text-cyan-700 transition">SEO &amp; Digital Reputation</h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2 leading-relaxed">
+              Auditoría SEO, presencia en buscadores Google y solicitudes legítimas de actualización de información.
+            </p>
+          </div>
+          <div class="space-y-1.5 pt-2 border-t border-slate-100 text-[11px]">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Dominio:</span>
+              <span class="font-semibold text-slate-700">Google SERP #1 a #10</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Activo:</span>
+              <span class="text-cyan-700 font-bold">Google Knowledge Panel</span>
+            </div>
+          </div>
+          <div class="pt-1 flex items-center text-xs text-cyan-700 font-bold gap-1 group-hover:translate-x-1 transition">
+            <span>Ver ficha técnica</span>
+            <span>→</span>
+          </div>
+        </div>
+
+        <!-- Module 06 -->
+        <div onclick="openModuleModal(6)" class="panel-card panel-card-hover rounded-2xl p-5 space-y-3 cursor-pointer group">
+          <div class="flex items-start justify-between">
+            <div class="w-9 h-9 rounded-xl bg-red-50 text-red-700 border border-red-200 flex items-center justify-center font-bold text-xs">
+              06
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-red-50 text-red-800 border border-red-200">
+              Protección
+            </span>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-slate-900 group-hover:text-red-700 transition">Crisis Management &amp; Legal</h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2 leading-relaxed">
+              Gestión de incidentes, verificación probatoria, protocolos de respuesta y asesoría jurídica especializada.
+            </p>
+          </div>
+          <div class="space-y-1.5 pt-2 border-t border-slate-100 text-[11px]">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Reacción:</span>
+              <span class="font-semibold text-slate-700">SOP probatorio &lt; 90 min</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Archivo:</span>
+              <span class="text-red-700 font-bold">SECOP, Paz y Salvos</span>
+            </div>
+          </div>
+          <div class="pt-1 flex items-center text-xs text-red-700 font-bold gap-1 group-hover:translate-x-1 transition">
+            <span>Ver ficha técnica</span>
+            <span>→</span>
+          </div>
+        </div>
+
+        <!-- Module 07 -->
+        <div onclick="openModuleModal(7)" class="panel-card panel-card-hover rounded-2xl p-5 space-y-3 cursor-pointer group col-span-1 md:col-span-2 lg:col-span-3">
+          <div class="flex items-start justify-between">
+            <div class="w-9 h-9 rounded-xl bg-teal-50 text-teal-700 border border-teal-200 flex items-center justify-center font-bold text-xs">
+              07
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-teal-50 text-teal-800 border border-teal-200">
+              Tecnología &amp; Datos
+            </span>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="md:col-span-2">
+              <h3 class="text-base font-bold text-slate-900 group-hover:text-teal-700 transition">Data &amp; Communications Management</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                Gestión de contactos autorizados, micro-segmentación territorial veredal, comunicaciones directas SMS, WhatsApp comunitario, cumplimiento de la Ley 1581 (Habeas Data) e informes de analítica avanzada.
+              </p>
+            </div>
+            <div class="space-y-1.5 text-[11px] border-t md:border-t-0 md:border-l border-slate-100 pt-2 md:pt-0 md:pl-4">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400">Norma:</span>
+                <span class="font-semibold text-teal-800">Ley 1581 de 2012</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400">Capilaridad:</span>
+                <span class="text-slate-700">13 Provincias de Boyacá</span>
+              </div>
+              <div class="pt-1 flex items-center text-xs text-teal-700 font-bold gap-1">
+                <span>Ver ficha técnica completa</span>
+                <span>→</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SECTION 2: ROADMAP ESTRATÉGICO -->
+    <section id="content-roadmap" class="hidden space-y-5">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div>
+          <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-purple-700">🗺️</span> Roadmap de Madurez Operativa en 6 Fases
+          </h2>
+          <p class="text-xs text-slate-500 mt-0.5">
+            Secuencia continua desde el diagnóstico y la infraestructura técnica hasta la consolidación territorial.
+          </p>
+        </div>
+        <div class="text-xs font-mono font-bold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-xl border border-emerald-200">
+          Progreso Global: 100% en 6 Hitos
+        </div>
+      </div>
+
+      <!-- Roadmap Timeline Bar -->
+      <div class="panel-card rounded-2xl p-6 space-y-6">
+        
+        <div class="grid grid-cols-1 md:grid-cols-6 gap-3">
+          
+          <div onclick="selectRoadmapPhase(1)" class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 hover:border-emerald-500 cursor-pointer transition space-y-1.5 group">
+            <div class="flex items-center justify-between">
+              <div class="w-7 h-7 rounded-full bg-emerald-700 text-white font-black text-xs flex items-center justify-center">01</div>
+              <span class="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-100/70 px-1.5 py-0.5 rounded">17%</span>
+            </div>
+            <h3 class="text-xs font-bold text-slate-900 group-hover:text-emerald-700">Diagnóstico e Inteligencia</h3>
+            <p class="text-[10px] text-slate-500 leading-tight">Auditoría reputacional, investigación y mapa de riesgos.</p>
+          </div>
+
+          <div onclick="selectRoadmapPhase(2)" class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 hover:border-cyan-500 cursor-pointer transition space-y-1.5 group">
+            <div class="flex items-center justify-between">
+              <div class="w-7 h-7 rounded-full bg-cyan-700 text-white font-black text-xs flex items-center justify-center">02</div>
+              <span class="text-[10px] font-mono font-bold text-cyan-800 bg-cyan-100/70 px-1.5 py-0.5 rounded">33%</span>
+            </div>
+            <h3 class="text-xs font-bold text-slate-900 group-hover:text-cyan-700">Infraestructura Tecnológica</h3>
+            <p class="text-[10px] text-slate-500 leading-tight">Canales oficiales y observatorio 24/7 activo.</p>
+          </div>
+
+          <div onclick="selectRoadmapPhase(3)" class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 hover:border-blue-500 cursor-pointer transition space-y-1.5 group">
+            <div class="flex items-center justify-between">
+              <div class="w-7 h-7 rounded-full bg-blue-700 text-white font-black text-xs flex items-center justify-center">03</div>
+              <span class="text-[10px] font-mono font-bold text-blue-800 bg-blue-100/70 px-1.5 py-0.5 rounded">50%</span>
+            </div>
+            <h3 class="text-xs font-bold text-slate-900 group-hover:text-blue-700">Producción Documental</h3>
+            <p class="text-[10px] text-slate-500 leading-tight">Biblioteca audiovisual y testimonios en territorio.</p>
+          </div>
+
+          <div onclick="selectRoadmapPhase(4)" class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 hover:border-amber-500 cursor-pointer transition space-y-1.5 group">
+            <div class="flex items-center justify-between">
+              <div class="w-7 h-7 rounded-full bg-amber-600 text-white font-black text-xs flex items-center justify-center">04</div>
+              <span class="text-[10px] font-mono font-bold text-amber-800 bg-amber-100/70 px-1.5 py-0.5 rounded">67%</span>
+            </div>
+            <h3 class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Gestión Reputacional</h3>
+            <p class="text-[10px] text-slate-500 leading-tight">Despliegue SEO masivo y contención de controversias.</p>
+          </div>
+
+          <div onclick="selectRoadmapPhase(5)" class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 hover:border-orange-500 cursor-pointer transition space-y-1.5 group">
+            <div class="flex items-center justify-between">
+              <div class="w-7 h-7 rounded-full bg-orange-600 text-white font-black text-xs flex items-center justify-center">05</div>
+              <span class="text-[10px] font-mono font-bold text-orange-800 bg-orange-100/70 px-1.5 py-0.5 rounded">83%</span>
+            </div>
+            <h3 class="text-xs font-bold text-slate-900 group-hover:text-orange-700">Observación Territorial</h3>
+            <p class="text-[10px] text-slate-500 leading-tight">Articulación con las 13 provincias y red veredal.</p>
+          </div>
+
+          <div onclick="selectRoadmapPhase(6)" class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 hover:border-emerald-500 cursor-pointer transition space-y-1.5 group">
+            <div class="flex items-center justify-between">
+              <div class="w-7 h-7 rounded-full bg-emerald-700 text-white font-black text-xs flex items-center justify-center">06</div>
+              <span class="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-100/70 px-1.5 py-0.5 rounded">100%</span>
+            </div>
+            <h3 class="text-xs font-bold text-slate-900 group-hover:text-emerald-700">Consolidación y Cierre</h3>
+            <p class="text-[10px] text-slate-500 leading-tight">Auditoría final, balance y continuidad electoral.</p>
+          </div>
+
+        </div>
+
+        <!-- Dynamic Phase Detail Box -->
+        <div id="roadmapPhaseDetail" class="p-5 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-emerald-800 uppercase tracking-wider bg-emerald-100/70 px-2 py-0.5 rounded" id="phaseDetailBadge">Hito Seleccionado: Fase 01</span>
+            <span class="text-xs text-slate-500 font-mono" id="phaseDetailWeeks">Ciclo Inicial de Despliegue</span>
+          </div>
+          <h4 class="text-base font-bold text-slate-900" id="phaseDetailTitle">Diagnóstico Inicial de Riesgos &amp; Auditoría Social</h4>
+          <p class="text-xs text-slate-600 leading-relaxed" id="phaseDetailDesc">
+            Inmersión profunda de investigación: auditoría digital del histórico de Wilmer Castellanos (alcaldía Sutamarchán, paso por Invías/Gobernación, curul en Cámara), mapeo de los 123 municipios boyacenses y levantamiento de la matriz FODA y mapa de riesgos.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs">
+            <div class="p-3 bg-white rounded-xl border border-slate-200">
+              <span class="text-[10px] text-slate-400 uppercase font-semibold">Entregable Crítico</span>
+              <p class="text-slate-900 font-medium mt-0.5" id="phaseDetailDeliverable">Dossier de Inteligencia &amp; Riesgos Reputacionales</p>
+            </div>
+            <div class="p-3 bg-white rounded-xl border border-slate-200">
+              <span class="text-[10px] text-slate-400 uppercase font-semibold">Módulos Involucrados</span>
+              <p class="text-slate-900 font-medium mt-0.5" id="phaseDetailModules">01 Social Intelligence, 02 Reputation, 06 Legal</p>
+            </div>
+            <div class="p-3 bg-white rounded-xl border border-slate-200">
+              <span class="text-[10px] text-slate-400 uppercase font-semibold">Criterio de Aprobación</span>
+              <p class="text-slate-900 font-medium mt-0.5" id="phaseDetailCriteria">Validación por el Comité de Dirección (100%)</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SECTION 3: DASHBOARD DE INDICADORES (KPIS) -->
+    <section id="content-kpis" class="hidden space-y-5">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div>
+          <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-emerald-700">📊</span> Dashboard de Indicadores Clave de Desempeño (KPIs)
+          </h2>
+          <p class="text-xs text-slate-500 mt-0.5">
+            Matriz de cumplimiento mensual auditable de piezas, informes, contenidos y cobertura.
+          </p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-xs text-slate-500">Meta Mensual Recurrente:</span>
+          <span class="text-xs font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Retainer Activo</span>
+        </div>
+      </div>
+
+      <!-- KPIs Metric Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <div class="panel-card rounded-2xl p-4 space-y-2">
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-slate-500 font-medium">Informes de Inteligencia</span>
+            <span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold">Semanal</span>
+          </div>
+          <div class="flex items-baseline justify-between">
+            <div class="text-3xl font-black text-slate-900">4</div>
+            <div class="text-xs text-slate-500">Meta: <span class="text-emerald-700 font-bold">4 / mes</span></div>
+          </div>
+          <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+            <div class="bg-emerald-600 h-full rounded-full w-full"></div>
+          </div>
+          <p class="text-[10px] text-slate-400">Entrega fija semanal cada lunes 8:00 AM</p>
+        </div>
+
+        <div class="panel-card rounded-2xl p-4 space-y-2">
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-slate-500 font-medium">Videos Cortos (Reels/TikTok)</span>
+            <span class="px-2 py-0.5 rounded bg-cyan-50 text-cyan-700 border border-cyan-200 font-bold">3 / sem</span>
+          </div>
+          <div class="flex items-baseline justify-between">
+            <div class="text-3xl font-black text-slate-900">12</div>
+            <div class="text-xs text-slate-500">Meta: <span class="text-cyan-700 font-bold">12 / mes</span></div>
+          </div>
+          <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+            <div class="bg-cyan-600 h-full rounded-full w-full"></div>
+          </div>
+          <p class="text-[10px] text-slate-400">Formato vertical 4K para redes sociales</p>
+        </div>
+
+        <div class="panel-card rounded-2xl p-4 space-y-2">
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-slate-500 font-medium">Piezas Gráficas Diseñadas</span>
+            <span class="px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200 font-bold">3 / sem</span>
+          </div>
+          <div class="flex items-baseline justify-between">
+            <div class="text-3xl font-black text-slate-900">12</div>
+            <div class="text-xs text-slate-500">Meta: <span class="text-blue-700 font-bold">12 / mes</span></div>
+          </div>
+          <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+            <div class="bg-blue-600 h-full rounded-full w-full"></div>
+          </div>
+          <p class="text-[10px] text-slate-400">Infografías de gestión y datos de obras</p>
+        </div>
+
+        <div class="panel-card rounded-2xl p-4 space-y-2">
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-slate-500 font-medium">Entrevistas &amp; Vocerías</span>
+            <span class="px-2 py-0.5 rounded bg-purple-50 text-purple-700 border border-purple-200 font-bold">1 / sem</span>
+          </div>
+          <div class="flex items-baseline justify-between">
+            <div class="text-3xl font-black text-slate-900">4</div>
+            <div class="text-xs text-slate-500">Meta: <span class="text-purple-700 font-bold">4 / mes</span></div>
+          </div>
+          <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+            <div class="bg-purple-600 h-full rounded-full w-full"></div>
+          </div>
+          <p class="text-[10px] text-slate-400">Radio departamental y debates de opinión</p>
+        </div>
+
+        <div class="panel-card rounded-2xl p-4 space-y-2">
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-slate-500 font-medium">Minidocumentales Territoriales</span>
+            <span class="px-2 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-200 font-bold">Quincenal</span>
+          </div>
+          <div class="flex items-baseline justify-between">
+            <div class="text-3xl font-black text-slate-900">2</div>
+            <div class="text-xs text-slate-500">Meta: <span class="text-amber-700 font-bold">2 / mes</span></div>
+          </div>
+          <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+            <div class="bg-amber-500 h-full rounded-full w-full"></div>
+          </div>
+          <p class="text-[10px] text-slate-400">Historias en territorio y vías campesinas</p>
+        </div>
+
+        <div class="panel-card rounded-2xl p-4 space-y-2">
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-slate-500 font-medium">Informe Ejecutivo Directivo</span>
+            <span class="px-2 py-0.5 rounded bg-rose-50 text-rose-700 border border-rose-200 font-bold">Mensual</span>
+          </div>
+          <div class="flex items-baseline justify-between">
+            <div class="text-3xl font-black text-slate-900">1</div>
+            <div class="text-xs text-slate-500">Meta: <span class="text-rose-700 font-bold">1 / mes</span></div>
+          </div>
+          <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+            <div class="bg-rose-500 h-full rounded-full w-full"></div>
+          </div>
+          <p class="text-[10px] text-slate-400">Balance general para el candidato</p>
+        </div>
+
+        <div class="panel-card rounded-2xl p-4 space-y-2 col-span-1 sm:col-span-2 bg-gradient-to-r from-emerald-50/70 to-slate-50 border-emerald-200">
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-slate-700 font-medium">Monitoreo de Incidentes &amp; Crisis</span>
+            <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-ping"></span>
+              24/7 Activo
+            </span>
+          </div>
+          <div class="flex items-baseline justify-between">
+            <div class="text-2xl font-black text-emerald-800">Permanente</div>
+            <div class="text-xs text-slate-500">SOP: <span class="text-slate-800 font-bold">&lt; 90 minutos</span></div>
+          </div>
+          <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+            <div class="bg-emerald-600 h-full rounded-full w-full"></div>
+          </div>
+          <p class="text-[10px] text-slate-500">Radar continuo en medios radiales, portales de contratación y redes sociales.</p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SECTION 4: INVERSIÓN Y FINANZAS -->
+    <section id="content-finanzas" class="hidden space-y-5">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div>
+          <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-amber-600">💰</span> Inversión y Distribución Presupuestal Mensual
+          </h2>
+          <p class="text-xs text-slate-500 mt-0.5">
+            Estructura transparente y desglosada del retainer mensual por unidad operativa.
+          </p>
+        </div>
+        <div class="text-right">
+          <div class="text-xs text-slate-500">Inversión Mensual Total:</div>
+          <div class="text-xl font-black text-emerald-800 font-mono" id="budgetTotalDisplay">$25.000 USD / mes</div>
+        </div>
+      </div>
+
+      <!-- Financial Cards Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        
+        <div class="lg:col-span-2 panel-card rounded-2xl p-5 space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+            <h3 class="text-xs font-bold text-slate-800 uppercase tracking-wider">Unidades Operativas &amp; Asignación Mensual</h3>
+            <span class="text-xs text-slate-500 font-mono">Retainer Mensual Recurrente</span>
+          </div>
+
+          <div class="overflow-x-auto text-xs">
+            <table class="w-full text-left">
+              <thead>
+                <tr class="text-slate-400 border-b border-slate-100">
+                  <th class="py-2 font-semibold">Unidad de Servicio</th>
+                  <th class="py-2 font-semibold text-center">Cuota Mensual (USD)</th>
+                  <th class="py-2 font-semibold text-center">Cuota Mensual (COP ref.)</th>
+                  <th class="py-2 font-semibold text-right">% Participación</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100">
+                <tr>
+                  <td class="py-2.5 font-medium text-slate-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-500"></span> Producción Audiovisual &amp; Gráfica</td>
+                  <td class="py-2.5 text-center font-mono text-emerald-700 font-bold">$4.500</td>
+                  <td class="py-2.5 text-center font-mono text-slate-600">$18.000.000</td>
+                  <td class="py-2.5 text-right font-mono text-slate-500">18.0%</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 font-medium text-slate-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Dirección Estratégica General</td>
+                  <td class="py-2.5 text-center font-mono text-emerald-700 font-bold">$3.500</td>
+                  <td class="py-2.5 text-center font-mono text-slate-600">$14.000.000</td>
+                  <td class="py-2.5 text-right font-mono text-slate-500">14.0%</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 font-medium text-slate-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-500"></span> Inteligencia Social &amp; Monitoreo</td>
+                  <td class="py-2.5 text-center font-mono text-emerald-700 font-bold">$3.500</td>
+                  <td class="py-2.5 text-center font-mono text-slate-600">$14.000.000</td>
+                  <td class="py-2.5 text-right font-mono text-slate-500">14.0%</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 font-medium text-slate-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-purple-500"></span> Comunicación Estratégica &amp; Relato</td>
+                  <td class="py-2.5 text-center font-mono text-emerald-700 font-bold">$3.500</td>
+                  <td class="py-2.5 text-center font-mono text-slate-600">$14.000.000</td>
+                  <td class="py-2.5 text-right font-mono text-slate-500">14.0%</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 font-medium text-slate-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-cyan-500"></span> SEO &amp; Posicionamiento en Buscadores</td>
+                  <td class="py-2.5 text-center font-mono text-emerald-700 font-bold">$3.000</td>
+                  <td class="py-2.5 text-center font-mono text-slate-600">$12.000.000</td>
+                  <td class="py-2.5 text-right font-mono text-slate-500">12.0%</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 font-medium text-slate-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-red-500"></span> Crisis Management &amp; Blindaje Jurídico</td>
+                  <td class="py-2.5 text-center font-mono text-emerald-700 font-bold">$2.000</td>
+                  <td class="py-2.5 text-center font-mono text-slate-600">$8.000.000</td>
+                  <td class="py-2.5 text-right font-mono text-slate-500">8.0%</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 font-medium text-slate-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-teal-500"></span> Tecnología, Datos y Mensajería SMS</td>
+                  <td class="py-2.5 text-center font-mono text-emerald-700 font-bold">$2.000</td>
+                  <td class="py-2.5 text-center font-mono text-slate-600">$8.000.000</td>
+                  <td class="py-2.5 text-right font-mono text-slate-500">8.0%</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 font-medium text-slate-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-orange-500"></span> Observación &amp; Despliegue Territorial</td>
+                  <td class="py-2.5 text-center font-mono text-emerald-700 font-bold">$1.500</td>
+                  <td class="py-2.5 text-center font-mono text-slate-600">$6.000.000</td>
+                  <td class="py-2.5 text-right font-mono text-slate-500">6.0%</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 font-medium text-slate-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-slate-400"></span> Administración, Auditoría &amp; Soporte</td>
+                  <td class="py-2.5 text-center font-mono text-emerald-700 font-bold">$1.500</td>
+                  <td class="py-2.5 text-center font-mono text-slate-600">$6.000.000</td>
+                  <td class="py-2.5 text-right font-mono text-slate-500">6.0%</td>
+                </tr>
+                <tr class="bg-slate-50 font-bold text-slate-900 border-t-2 border-emerald-500">
+                  <td class="py-3">TOTAL MENSUAL RECURRENTE</td>
+                  <td class="py-3 text-center font-mono text-emerald-800 text-sm">$25.000</td>
+                  <td class="py-3 text-center font-mono text-slate-700 text-sm">$100.000.000</td>
+                  <td class="py-3 text-right font-mono text-emerald-800">100.0%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="panel-card rounded-2xl p-5 space-y-3">
+            <h3 class="text-xs font-bold text-slate-800 uppercase tracking-wider">Distribución Porcentual</h3>
+            
+            <div class="w-full h-3.5 rounded-full overflow-hidden flex bg-slate-100 shadow-inner">
+              <div style="width: 18%" class="bg-amber-500" title="Producción: 18%"></div>
+              <div style="width: 14%" class="bg-emerald-600" title="Dirección: 14%"></div>
+              <div style="width: 14%" class="bg-blue-600" title="Inteligencia: 14%"></div>
+              <div style="width: 14%" class="bg-purple-600" title="Comunicación: 14%"></div>
+              <div style="width: 12%" class="bg-cyan-600" title="SEO: 12%"></div>
+              <div style="width: 8%" class="bg-red-500" title="Crisis: 8%"></div>
+              <div style="width: 8%" class="bg-teal-600" title="Tecnología: 8%"></div>
+              <div style="width: 6%" class="bg-orange-500" title="Territorio: 6%"></div>
+              <div style="width: 6%" class="bg-slate-400" title="Administración: 6%"></div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-1.5 text-[11px] pt-1">
+              <div class="flex items-center gap-1.5 text-slate-600"><span class="w-2 h-2 rounded bg-amber-500"></span> Producción (18%)</div>
+              <div class="flex items-center gap-1.5 text-slate-600"><span class="w-2 h-2 rounded bg-emerald-600"></span> Dirección (14%)</div>
+              <div class="flex items-center gap-1.5 text-slate-600"><span class="w-2 h-2 rounded bg-blue-600"></span> Inteligencia (14%)</div>
+              <div class="flex items-center gap-1.5 text-slate-600"><span class="w-2 h-2 rounded bg-purple-600"></span> Comunicación (14%)</div>
+              <div class="flex items-center gap-1.5 text-slate-600"><span class="w-2 h-2 rounded bg-cyan-600"></span> SEO (12%)</div>
+              <div class="flex items-center gap-1.5 text-slate-600"><span class="w-2 h-2 rounded bg-red-500"></span> Crisis &amp; Ley (8%)</div>
+              <div class="flex items-center gap-1.5 text-slate-600"><span class="w-2 h-2 rounded bg-teal-600"></span> Tecnología (8%)</div>
+              <div class="flex items-center gap-1.5 text-slate-600"><span class="w-2 h-2 rounded bg-orange-500"></span> Territorio (6%)</div>
+            </div>
+          </div>
+
+          <div class="p-4 bg-emerald-50 rounded-2xl border border-emerald-200 space-y-1.5">
+            <div class="text-xs font-bold text-emerald-900 uppercase tracking-wider">Eficiencia de Inversión (ROI Político)</div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              La contratación unificada bajo este modelo SaaS representa un <strong>ahorro estimado del 42%</strong> respecto a la tercerización dispersa de agencias de video, firmas de relaciones públicas, bufetes jurídicos y casas de software por separado.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SECTION 5: EQUIPO DIRECTIVO -->
+    <section id="content-equipo" class="hidden space-y-5">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div>
+          <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-700">👥</span> Estructura del Equipo Directivo
+          </h2>
+          <p class="text-xs text-slate-500 mt-0.5">
+            Organigrama de alta dirección responsable del cumplimiento de SLAs, calidad editorial y respuesta inmediata.
+          </p>
+        </div>
+        <div class="text-xs text-slate-600 bg-white px-3 py-1.5 rounded-xl border border-slate-200">
+          7 Directores Principales con Rendición de Cuentas Directa
+        </div>
+      </div>
+
+      <!-- 7 Executive Roles Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+        
+        <div class="panel-card rounded-2xl p-4 space-y-2 border-emerald-200 bg-emerald-50/20">
+          <div class="flex items-center justify-between">
+            <span class="text-emerald-800 font-bold uppercase tracking-wider text-[10px]">C-Level Leadership</span>
+            <span class="text-slate-400 font-mono">01</span>
+          </div>
+          <h3 class="text-base font-bold text-slate-900">Executive Director</h3>
+          <p class="text-slate-500 leading-relaxed">
+            Liderazgo estratégico general de la consultoría. Interlocutor permanente ante Wilmer Castellanos y la jefatura política. Responsable final de la alineación de todos los módulos y la ejecución presupuestal.
+          </p>
+          <div class="p-2 bg-white rounded-xl border border-slate-200 text-[11px]">
+            <span class="text-slate-400 font-semibold block">Entregable Clave:</span>
+            <span class="text-emerald-800 font-semibold">Informe Ejecutivo Mensual &amp; Dirección del War Room</span>
+          </div>
+        </div>
+
+        <div class="panel-card rounded-2xl p-4 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-cyan-800 font-bold uppercase tracking-wider text-[10px]">Intelligence Unit</span>
+            <span class="text-slate-400 font-mono">02</span>
+          </div>
+          <h3 class="text-base font-bold text-slate-900">Social Intelligence Director</h3>
+          <p class="text-slate-500 leading-relaxed">
+            Supervisa la investigación sociopolítica, mapas de actores institucionales y asuntos públicos de Boyacá. Conduce la observación sobre el censo electoral y la dinámica veredal.
+          </p>
+          <div class="p-2 bg-slate-50 rounded-xl border border-slate-200 text-[11px]">
+            <span class="text-slate-400 font-semibold block">Entregable Clave:</span>
+            <span class="text-cyan-800 font-semibold">4 Informes de Inteligencia Social al mes</span>
+          </div>
+        </div>
+
+        <div class="panel-card rounded-2xl p-4 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-blue-800 font-bold uppercase tracking-wider text-[10px]">Digital Radar</span>
+            <span class="text-slate-400 font-mono">03</span>
+          </div>
+          <h3 class="text-base font-bold text-slate-900">Reputation Intelligence Analyst</h3>
+          <p class="text-slate-500 leading-relaxed">
+            Responsable del observatorio digital 24/7 y la escucha activa de redes sociales, medios tradicionales regionales y debates de opinión en Boyacá y el país.
+          </p>
+          <div class="p-2 bg-slate-50 rounded-xl border border-slate-200 text-[11px]">
+            <span class="text-slate-400 font-semibold block">Entregable Clave:</span>
+            <span class="text-blue-800 font-semibold">Alertas tempranas de incidentes en &lt; 15 min</span>
+          </div>
+        </div>
+
+        <div class="panel-card rounded-2xl p-4 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-purple-800 font-bold uppercase tracking-wider text-[10px]">Narrative Core</span>
+            <span class="text-slate-400 font-mono">04</span>
+          </div>
+          <h3 class="text-base font-bold text-slate-900">Strategic Communications Director</h3>
+          <p class="text-slate-500 leading-relaxed">
+            Custodio de la narrativa editorial: "El Ingeniero de Soluciones Reales". Coordina la relación con directores de medios boyacenses y asegura la consistencia discursiva del candidato.
+          </p>
+          <div class="p-2 bg-slate-50 rounded-xl border border-slate-200 text-[11px]">
+            <span class="text-slate-400 font-semibold block">Entregable Clave:</span>
+            <span class="text-purple-800 font-semibold">Agenda de 4 entrevistas radiales y comunicados</span>
+          </div>
+        </div>
+
+        <div class="panel-card rounded-2xl p-4 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-amber-800 font-bold uppercase tracking-wider text-[10px]">Creative Engine</span>
+            <span class="text-slate-400 font-mono">05</span>
+          </div>
+          <h3 class="text-base font-bold text-slate-900">Creative &amp; Media Director</h3>
+          <p class="text-slate-500 leading-relaxed">
+            Dirige la fábrica de contenidos: realizadores audiovisuales en territorio boyacense, editores de video vertical (TikTok/Reels), fotógrafos y diseñadores gráficos.
+          </p>
+          <div class="p-2 bg-slate-50 rounded-xl border border-slate-200 text-[11px]">
+            <span class="text-slate-400 font-semibold block">Entregable Clave:</span>
+            <span class="text-amber-800 font-semibold">12 Videos + 12 Gráficas + 2 Documentales al mes</span>
+          </div>
+        </div>
+
+        <div class="panel-card rounded-2xl p-4 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-cyan-800 font-bold uppercase tracking-wider text-[10px]">Tech &amp; Search</span>
+            <span class="text-slate-400 font-mono">06</span>
+          </div>
+          <h3 class="text-base font-bold text-slate-900">Digital Operations Manager</h3>
+          <p class="text-slate-500 leading-relaxed">
+            Lidera la optimización en motores de búsqueda (SEO), panel de conocimiento de Google de Wilmer Castellanos, gestión de base de datos autorizada y envíos directos SMS/WhatsApp.
+          </p>
+          <div class="p-2 bg-slate-50 rounded-xl border border-slate-200 text-[11px]">
+            <span class="text-slate-400 font-semibold block">Entregable Clave:</span>
+            <span class="text-cyan-800 font-semibold">Dominancia en primera página de Google</span>
+          </div>
+        </div>
+
+        <div class="panel-card rounded-2xl p-4 space-y-2 col-span-1 md:col-span-2 lg:col-span-3 border-red-200 bg-red-50/20">
+          <div class="flex items-center justify-between">
+            <span class="text-red-800 font-bold uppercase tracking-wider text-[10px]">Legal Shield &amp; Compliance</span>
+            <span class="text-slate-400 font-mono">07</span>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div class="md:col-span-2 space-y-1">
+              <h3 class="text-base font-bold text-slate-900">Legal &amp; Compliance Advisor</h3>
+              <p class="text-slate-500 leading-relaxed">
+                Jurista sénior especializado en derecho electoral, contratación pública y régimen disciplinario. Custodia el archivo probatorio de SECOP y paz y salvos de Sutamarchán e Invías. Interpone de forma inmediata solicitudes legítimas de rectificación ante informaciones falsas o sesgadas.
+              </p>
+            </div>
+            <div class="p-2.5 bg-white rounded-xl border border-red-200 text-[11px] space-y-0.5">
+              <span class="text-slate-400 font-semibold block">Garantía Jurídica:</span>
+              <p class="text-red-800 font-semibold">Reacción probatoria en &lt; 90 minutos y blindaje anti-impugnaciones</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SECTION 6: GOBIERNO & ÉTICA -->
+    <section id="content-gobierno" class="hidden space-y-5">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div>
+          <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-emerald-700">⚖️</span> Modelo de Gobierno, Supervisión y Código Ético
+          </h2>
+          <p class="text-xs text-slate-500 mt-0.5">
+            Mecanismos formales de auditoría, rendición de cuentas, trazabilidad y compromiso deontológico.
+          </p>
+        </div>
+        <div class="text-xs text-emerald-800 bg-emerald-50 px-3 py-1.5 rounded-xl border border-emerald-200 font-mono font-bold">
+          White-Hat Intelligence Standard
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        
+        <div class="panel-card rounded-2xl p-5 space-y-3">
+          <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-700">📋</span> Tablero de Control &amp; Dinámica de Supervisión
+          </h3>
+          <p class="text-xs text-slate-500">
+            La operación se rige por un estricto protocolo de seguimiento que garantiza control total al equipo de Wilmer Castellanos:
+          </p>
+          <div class="space-y-2.5 text-xs">
+            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 flex items-start gap-2.5">
+              <div class="w-5 h-5 rounded bg-blue-100 text-blue-800 font-bold flex items-center justify-center flex-shrink-0 text-xs">1</div>
+              <div>
+                <span class="text-slate-800 font-semibold">Comités Ejecutivos Semanales</span>
+                <p class="text-slate-500 mt-0.5 text-[11px]">Reunión de 60 min para revisar avances, reajustar prioridades y evaluar alertas del observatorio.</p>
+              </div>
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 flex items-start gap-2.5">
+              <div class="w-5 h-5 rounded bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center flex-shrink-0 text-xs">2</div>
+              <div>
+                <span class="text-slate-800 font-semibold">Reportes Mensuales Auditables</span>
+                <p class="text-slate-500 mt-0.5 text-[11px]">Dossier mensual con métricas de rendimiento, alcance, análisis de sentimiento y resumen de incidentes.</p>
+              </div>
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 flex items-start gap-2.5">
+              <div class="w-5 h-5 rounded bg-purple-100 text-purple-800 font-bold flex items-center justify-center flex-shrink-0 text-xs">3</div>
+              <div>
+                <span class="text-slate-800 font-semibold">Pasarela Obligatoria de Aprobación</span>
+                <p class="text-slate-500 mt-0.5 text-[11px]">Ningún video, pieza gráfica o comunicado se difunde sin el visto bueno expreso del candidato o su delegado.</p>
+              </div>
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 flex items-start gap-2.5">
+              <div class="w-5 h-5 rounded bg-amber-100 text-amber-800 font-bold flex items-center justify-center flex-shrink-0 text-xs">4</div>
+              <div>
+                <span class="text-slate-800 font-semibold">Trazabilidad Presupuestal Continua</span>
+                <p class="text-slate-500 mt-0.5 text-[11px]">El pago mensual de $25.000 USD se desembolsa contra acta de recibo formal y verificación de los entregables del mes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-card rounded-2xl p-5 space-y-3 border-emerald-200 bg-emerald-50/20">
+          <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-emerald-700">🛡️</span> Código de Ética y Transparencia
+          </h3>
+          <p class="text-xs text-slate-500">
+            Compromiso irrestricto de consultoría de ingeniería social limpia, profesional y verificable:
+          </p>
+
+          <div class="p-3 bg-white rounded-xl border border-emerald-200 space-y-1.5 text-xs">
+            <span class="text-emerald-800 font-bold uppercase tracking-wider text-[10px]">Declaración Expresa de Buenas Prácticas</span>
+            <p class="text-slate-600 leading-relaxed text-[11px]">
+              Las métricas y estrategias servirán exclusivamente para evaluar calidad, cumplimiento, alcance informativo y gestión legítima de riesgos, <strong>sin manipular la opinión pública, sin recurrir a la desinformación ni utilizar identidades falsas o granjas automatizadas</strong>.
+            </p>
+          </div>
+
+          <div class="space-y-2 text-xs">
+            <div class="flex items-center gap-2 text-slate-700">
+              <span class="text-red-600 font-bold">✕</span>
+              <span><strong>Prohibición Absoluta de Cuentas Falsas:</strong> Cero uso de bots o trolls.</span>
+            </div>
+            <div class="flex items-center gap-2 text-slate-700">
+              <span class="text-red-600 font-bold">✕</span>
+              <span><strong>Prohibición de Guerra Sucia:</strong> Cero difusión de rumores infundados o noticias falsas.</span>
+            </div>
+            <div class="flex items-center gap-2 text-slate-700">
+              <span class="text-emerald-800 font-bold">✓</span>
+              <span><strong>Cumplimiento Habeas Data:</strong> Apego estricto a la Ley 1581 de 2012 y normatividad electoral.</span>
+            </div>
+            <div class="flex items-center gap-2 text-slate-700">
+              <span class="text-emerald-800 font-bold">✓</span>
+              <span><strong>Defensa Probatoria de Contratación:</strong> Argumentarios respaldados 100% en documentos oficiales del SECOP.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="panel-card rounded-2xl p-5 text-center text-xs text-slate-400 space-y-1.5">
+      <div class="flex flex-wrap items-center justify-center gap-3 text-slate-500 font-medium">
+        <span>Ingeniería Social &amp; Strategic Management</span>
+        <span>•</span>
+        <span>Wilmer Castellanos · Gobernación de Boyacá</span>
+        <span>•</span>
+        <span>Inversión: USD $25K / mes (Retainer)</span>
+        <span>•</span>
+        <span>Corte Operativo: Octubre 2026</span>
+      </div>
+      <p class="text-[11px] text-slate-400">
+        Plataforma confidencial y estratégica. Propiedad del equipo de consultoría y dirección de campaña.
+      </p>
+    </footer>
+
+  </div>
+
+  <!-- MODULE DETAIL MODAL DIALOG -->
+  <div id="moduleModal" class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-7 space-y-4 border border-slate-200 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <div class="flex items-start justify-between">
+        <div class="flex items-center gap-3">
+          <span id="modalModNumber" class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-800 font-black flex items-center justify-center text-sm border border-emerald-200">01</span>
+          <div>
+            <span id="modalModCategory" class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-1.5 py-0.2 rounded border border-emerald-200">Investigación</span>
+            <h3 id="modalModTitle" class="text-lg font-bold text-slate-900 mt-0.5">Social Intelligence</h3>
+          </div>
+        </div>
+        <button onclick="closeModuleModal()" class="text-slate-400 hover:text-slate-700 p-1 rounded-lg hover:bg-slate-100 transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <div class="space-y-3 text-xs text-slate-600">
+        <div>
+          <h4 class="text-slate-400 font-semibold uppercase text-[10px] tracking-wider">Objetivo de la Unidad</h4>
+          <p id="modalModGoal" class="text-slate-800 text-xs sm:text-sm mt-0.5 leading-relaxed"></p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+            <span class="text-slate-400 uppercase text-[10px] font-bold block">Entregables Clave</span>
+            <p id="modalModDeliverables" class="text-emerald-800 font-semibold mt-0.5 leading-snug"></p>
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+            <span class="text-slate-400 uppercase text-[10px] font-bold block">Frecuencia &amp; SLA</span>
+            <p id="modalModSla" class="text-blue-800 font-semibold mt-0.5 leading-snug"></p>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-slate-400 font-semibold uppercase text-[10px] tracking-wider">Metodología &amp; Herramientas</h4>
+          <p id="modalModTools" class="text-slate-600 mt-0.5 leading-relaxed"></p>
+        </div>
+
+        <div class="p-3 bg-emerald-50/60 rounded-xl border border-emerald-200">
+          <span class="text-emerald-900 uppercase text-[10px] font-bold block">Impacto Estratégico en Boyacá</span>
+          <p id="modalModImpact" class="text-emerald-800 mt-0.5 italic"></p>
+        </div>
+      </div>
+
+      <div class="pt-1 flex justify-end">
+        <button onclick="closeModuleModal()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl text-xs font-semibold transition">
+          Cerrar Ficha
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    function switchView(viewId) {
+      const views = ['modulos', 'roadmap', 'kpis', 'finanzas', 'equipo', 'gobierno'];
+      views.forEach(v => {
+        const btn = document.getElementById('view-' + v);
+        const sec = document.getElementById('content-' + v);
+        if (btn) btn.classList.remove('active');
+        if (sec) sec.classList.add('hidden');
+      });
+
+      const activeBtn = document.getElementById('view-' + viewId);
+      const activeSec = document.getElementById('content-' + viewId);
+      if (activeBtn) activeBtn.classList.add('active');
+      if (activeSec) activeSec.classList.remove('hidden');
+    }
+
+    let isCop = false;
+    function toggleCurrency() {
+      isCop = !isCop;
+      const monthlyFeeDisplay = document.getElementById('monthlyFeeDisplay');
+      const monthlyFeeCop = document.getElementById('monthlyFeeCop');
+      const budgetTotalDisplay = document.getElementById('budgetTotalDisplay');
+      
+      if (isCop) {
+        monthlyFeeDisplay.innerText = '$100M COP';
+        monthlyFeeCop.innerText = '≈ USD $25K / mes';
+        budgetTotalDisplay.innerText = '$100.000.000 COP / mes';
+      } else {
+        monthlyFeeDisplay.innerText = 'USD $25K';
+        monthlyFeeCop.innerText = '≈ $100M COP/mes';
+        budgetTotalDisplay.innerText = '$25.000 USD / mes';
+      }
+    }
+
+    const modulesData = {
+      1: {
+        number: "01",
+        category: "Investigación",
+        title: "Social Intelligence",
+        goal: "Investigación sociopolítica territorial exhaustiva, análisis documental de problemáticas en los 123 municipios boyacenses, mapeo continuo de líderes comunales (JAC) y seguimiento riguroso de asuntos públicos.",
+        deliverables: "4 Informes Semanales de Inteligencia Política, Cartografía de actores institucionales por provincia y monitoreo de alianzas.",
+        sla: "Entrega semanal fija cada lunes 8:00 AM.",
+        tools: "Procesamiento de datos del CNE, encuestas de campo, análisis de redes de poder provincial, matrices de actores clave.",
+        impact: "Permite a Wilmer Castellanos llegar a cada provincia con cifras exactas, nombres de líderes y conocimiento milimétrico de las necesidades veredales."
+      },
+      2: {
+        number: "02",
+        category: "Monitoreo",
+        title: "Reputation Intelligence",
+        goal: "Observatorio digital 24/7 y escucha activa sobre la conversación digital y medios regionales respecto a Wilmer Castellanos, sus contendores y la gestión departamental.",
+        deliverables: "Dossier mensual de reputación, tablero de alertas tempranas y monitoreo de riesgos de controversia mediática.",
+        sla: "Régimen 24/7. Notificación de alerta crítica en menos de 15 minutos.",
+        tools: "Scraping de medios radiales boyacenses, monitoreo en tiempo real de X, TikTok, Facebook y comentarios ciudadanos.",
+        impact: "Anticipa cualquier ataque o tergiversación antes de que se vuelva tendencia regional, permitiendo desactivar controversias en su génesis."
+      },
+      3: {
+        number: "03",
+        category: "Comunicación",
+        title: "Strategic Communications",
+        goal: "Arquitectura editorial integral y narrativa oficial del candidato bajo el concepto 'El Ingeniero de Soluciones Reales'. Gestión de canales de prensa y vocería verificable.",
+        deliverables: "4 Entrevistas de fondo en medios al mes, comunicados de prensa con soporte técnico, matrices discursivas temáticas.",
+        sla: "Línea editorial permanente con vocería diaria estructurada.",
+        tools: "Redacción estratégica, relacionamiento con directores de medios de Tunja, Duitama, Sogamoso, Chiquinquirá y Bogotá.",
+        impact: "Instala en la opinión boyacense la imagen indiscutible de un líder técnico, sereno, de obras y leyes sancionadas, alejándolo de la polarización estéril."
+      },
+      4: {
+        number: "04",
+        category: "Producción",
+        title: "Digital Media Production",
+        goal: "Fábrica de contenidos audiovisuales y gráficos de estándar cinematográfico, documentando el trabajo en vías, campo, acueductos y contacto ciudadano.",
+        deliverables: "12 Videos cortos verticales (Reels/TikTok/Shorts) al mes, 12 Piezas gráficas/infografías al mes y 2 Minidocumentales de territorio.",
+        sla: "Publicación de contenidos 3 veces por semana con cronograma mensual.",
+        tools: "Cámaras 4K, drones para tomas de corredores viales, suite Adobe Premiere/After Effects, dirección de fotografía profesional.",
+        impact: "Genera una conexión emocional y estética moderna que viraliza el perfil de Wilmer tanto en jóvenes urbanos como en comunidades rurales."
+      },
+      5: {
+        number: "05",
+        category: "Posicionamiento",
+        title: "SEO & Digital Reputation",
+        goal: "Auditoría SEO algorítmica y control de las SERPs (primeras páginas de resultados de Google). Posicionamiento de activos oficiales y solicitudes legítimas de actualización informativa.",
+        deliverables: "Dominio de las 10 primeras posiciones de Google para 'Wilmer Castellanos', configuración de Google Knowledge Panel y Wikipedia/Wikidata.",
+        sla: "Monitoreo y optimización semanal de indexación y algoritmos.",
+        tools: "SEO técnico, Schema Markup estructurado, relaciones con portales informativos de alta autoridad de dominio (DA > 60).",
+        impact: "Garantiza que cualquier ciudadano, periodista o líder que busque a Wilmer en Google encuentre sus leyes sancionadas, su hoja de vida y sus propuestas."
+      },
+      6: {
+        number: "06",
+        category: "Protección",
+        title: "Crisis Management & Legal",
+        goal: "Protocolo estandarizado de respuesta inmediata y blindaje jurídico. Gestión de controversias contractuales históricas (Sutamarchán e Invías) y vocería legal.",
+        deliverables: "Repositorio blindado de paz y salvos de SECOP, actas de entrega, derechos de petición y solicitudes de rectificación.",
+        sla: "Triage en 15 minutos, despliegue probatorio en menos de 90 minutos.",
+        tools: "Asesoría jurídica de juristas expertos en contratación estatal, derecho disciplinario de Procuraduría y derecho de prensa.",
+        impact: "Inmuniza la campaña frente a ataques de guerra sucia de competidores, respondiendo no con insultos sino con documentos públicos incontestables."
+      },
+      7: {
+        number: "07",
+        category: "Tecnología & Datos",
+        title: "Data & Communications Management",
+        goal: "Gestión de bases de datos de contactos autorizados, segmentación territorial veredal, difusión directa por SMS y WhatsApp veredal con estricto apego a Habeas Data.",
+        deliverables: "Segmentación en 13 provincias, automatización de mensajería programada y reportes de apertura/tasa de respuesta.",
+        sla: "Disponibilidad tecnológica 99.9% y actualización semanal de bases.",
+        tools: "Pasarelas SMS autorizadas, APIs oficiales de WhatsApp Business, servidores seguros bajo norma ISO/Ley 1581.",
+        impact: "Rompe los algoritmos de las redes tradicionales y llega de forma directa y personalizada al teléfono celular de los líderes comunitarios."
+      }
+    };
+
+    function openModuleModal(modId) {
+      const data = modulesData[modId];
+      if (!data) return;
+
+      document.getElementById('modalModNumber').innerText = data.number;
+      document.getElementById('modalModCategory').innerText = data.category;
+      document.getElementById('modalModTitle').innerText = data.title;
+      document.getElementById('modalModGoal').innerText = data.goal;
+      document.getElementById('modalModDeliverables').innerText = data.deliverables;
+      document.getElementById('modalModSla').innerText = data.sla;
+      document.getElementById('modalModTools').innerText = data.tools;
+      document.getElementById('modalModImpact').innerText = data.impact;
+
+      document.getElementById('moduleModal').classList.remove('hidden');
+    }
+
+    function closeModuleModal() {
+      document.getElementById('moduleModal').classList.add('hidden');
+    }
+
+    const phasesData = {
+      1: {
+        badge: "Hito Seleccionado: Fase 01",
+        weeks: "Ciclo Inicial de Despliegue",
+        title: "Diagnóstico e Inteligencia de Riesgos (17%)",
+        desc: "Inmersión profunda de investigación: auditoría digital del histórico de Wilmer Castellanos (alcaldía Sutamarchán, Invías/Gobernación, Cámara de Representantes), mapeo de los 123 municipios boyacenses y levantamiento del mapa de riesgos reputacionales inicial.",
+        deliverable: "Dossier Integral de Inteligencia & Mapa de Riesgos Reputacionales",
+        modules: "01 Social Intelligence, 02 Reputation, 06 Legal",
+        criteria: "Aprobación formal por el Comité Directivo (100%)"
+      },
+      2: {
+        badge: "Hito Seleccionado: Fase 02",
+        weeks: "Consolidación de Canales",
+        title: "Infraestructura Tecnológica & Blindaje de Canales (33%)",
+        desc: "Puesta en marcha del observatorio digital 24/7, verificación de canales oficiales de comunicación, auditoría de Google SERP inicial y establecimiento de la matriz de contingencia rápida.",
+        deliverable: "Observatorio Digital Activo & Repositorio Probatorio Documental",
+        modules: "02 Reputation, 05 SEO, 07 Data Management",
+        criteria: "Pruebas de estrés de respuesta rápida en < 90 min"
+      },
+      3: {
+        badge: "Hito Seleccionado: Fase 03",
+        weeks: "Fábrica Multimedia",
+        title: "Producción Documental & Biblioteca Audiovisual (50%)",
+        desc: "Rodajes en territorio: recopilación de testimonios de comunidades campesinas beneficiadas por las obras viales y las 3 leyes promovidas (Agro, Clima y Cuidado). Edición y curaduría del banco multimedia.",
+        deliverable: "Banco de 36 Videos Cortos + Minidocumentales de Infraestructura",
+        modules: "03 Strategic Comm, 04 Production, 01 Intelligence",
+        criteria: "Aprobación de la estética y línea editorial por el candidato"
+      },
+      4: {
+        badge: "Hito Seleccionado: Fase 04",
+        weeks: "Posicionamiento Activo",
+        title: "Gestión Reputacional Activa & Despliegue SEO (67%)",
+        desc: "Intensificación de la presencia en buscadores de Google, neutralización de rumores o desinformaciones en medios provinciales y activación de entrevistas temáticas en radio departamental.",
+        deliverable: "Google Knowledge Panel optimizado & 4 Entrevistas Radiales",
+        modules: "03 Strategic Comm, 05 SEO, 06 Legal",
+        criteria: "Primera página de Google con 100% de enlaces oficiales"
+      },
+      5: {
+        badge: "Hito Seleccionado: Fase 05",
+        weeks: "Despliegue Territorial",
+        title: "Observación Territorial & Red Directa de Datos (83%)",
+        desc: "Despliegue de los canales directos SMS y WhatsApp en las 13 provincias boyacenses. Monitoreo constante del cumplimiento de compromisos adquiridos en las giras municipales.",
+        deliverable: "Red de Difusión Directa Verificada en las 13 Provincias",
+        modules: "01 Social Intelligence, 07 Data & Tech, 04 Production",
+        criteria: "Tasa de entrega > 95% y cumplimiento de Habeas Data"
+      },
+      6: {
+        badge: "Hito Seleccionado: Fase 06",
+        weeks: "Escalamiento Continuo",
+        title: "Evaluación, Consolidación & Escalamiento (100%)",
+        desc: "Auditoría final de cumplimiento de metas, consolidación del informe de reputación e impacto, y optimización continua de los activos para la campaña de Wilmer Castellanos.",
+        deliverable: "Informe de Auditoría Integral & Estrategia de Cierre Electoral",
+        modules: "Todos los 7 Módulos en Sincronía Total",
+        criteria: "Aprobación a satisfacción del informe de desempeño"
+      }
+    };
+
+    function selectRoadmapPhase(phaseNum) {
+      const data = phasesData[phaseNum];
+      if (!data) return;
+
+      document.getElementById('phaseDetailBadge').innerText = data.badge;
+      document.getElementById('phaseDetailWeeks').innerText = data.weeks;
+      document.getElementById('phaseDetailTitle').innerText = data.title;
+      document.getElementById('phaseDetailDesc').innerText = data.desc;
+      document.getElementById('phaseDetailDeliverable').innerText = data.deliverable;
+      document.getElementById('phaseDetailModules').innerText = data.modules;
+      document.getElementById('phaseDetailCriteria').innerText = data.criteria;
+    }
+
+    let currentSlide = 1;
+    const totalSlides = 7;
+
+    function togglePitchDeck(show) {
+      const overlay = document.getElementById('pitchDeckOverlay');
+      if (show) {
+        overlay.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+        renderSlideDots();
+        goToSlide(1);
+      } else {
+        overlay.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      }
+    }
+
+    function renderSlideDots() {
+      const dotsContainer = document.getElementById('slideDots');
+      dotsContainer.innerHTML = '';
+      for (let i = 1; i <= totalSlides; i++) {
+        const dot = document.createElement('button');
+        dot.className = `w-2 h-2 rounded-full transition ${i === currentSlide ? 'bg-emerald-700 w-5' : 'bg-slate-300 hover:bg-slate-400'}`;
+        dot.onclick = () => goToSlide(i);
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function goToSlide(n) {
+      if (n < 1 || n > totalSlides) return;
+      currentSlide = n;
+
+      for (let i = 1; i <= totalSlides; i++) {
+        const slide = document.getElementById(`slide-${i}`);
+        if (slide) {
+          if (i === currentSlide) {
+            slide.classList.remove('hidden');
+          } else {
+            slide.classList.add('hidden');
+          }
+        }
+      }
+
+      document.getElementById('pitchSlideCounter').innerText = `Slide ${currentSlide} / ${totalSlides}`;
+      document.getElementById('prevSlideBtn').disabled = currentSlide === 1;
+      document.getElementById('prevSlideBtn').style.opacity = currentSlide === 1 ? '0.4' : '1';
+      document.getElementById('nextSlideBtn').innerText = currentSlide === totalSlides ? 'Finalizar' : 'Siguiente';
+
+      renderSlideDots();
+    }
+
+    function changeSlide(direction) {
+      if (currentSlide === totalSlides && direction === 1) {
+        togglePitchDeck(false);
+        return;
+      }
+      goToSlide(currentSlide + direction);
+    }
+
+    window.addEventListener('keydown', (e) => {
+      const overlay = document.getElementById('pitchDeckOverlay');
+      if (!overlay.classList.contains('hidden')) {
+        if (e.key === 'ArrowRight' || e.key === 'Space') {
+          changeSlide(1);
+        } else if (e.key === 'ArrowLeft') {
+          changeSlide(-1);
+        } else if (e.key === 'Escape') {
+          togglePitchDeck(false);
+        }
+      }
+    });
+  </script>
+</body>
+</html>
